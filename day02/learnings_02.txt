@@ -1,0 +1,77 @@
+Date: 2 July 2026
+
+Today, I moved beyond simply calling a Large Language Model and began understanding how to control its behavior through 
+Python programming and prompt engineering. I learned that building AI applications requires much more than interacting 
+with an API; it also requires understanding object-oriented programming, prompt design, and the internal concepts behind LLMs.
+
+The first part of today's learning focused on Python concepts that are commonly used in AI frameworks such as LangChain, LangGraph, CrewAI, 
+and AutoGen. I learned the concepts of classes and objects and understood that a class acts as a blueprint while objects are individual instances 
+created from that blueprint. I learned the purpose of the __init__() method, how it initializes object attributes, and how the self keyword 
+refers to the current object. I also learned that methods are simply functions defined inside a class and represent the behavior of an object. 
+To apply these concepts, I created my own Student class and later built an Agent class with attributes such as name and role along with a respond() 
+method. This helped me understand how future AI agents can be represented using object-oriented programming.
+
+I also learned about Python modules and packages and understood why separating code into multiple files improves project organization and 
+maintainability. Instead of placing everything in one file, I saw how importing functionality from different modules makes projects easier 
+to scale. This became especially useful later when I separated my AI prompts into a dedicated roles.py file.
+
+Another important topic was exception handling using try and except. I understood that AI applications depend on external APIs, which can fail due 
+to invalid API keys, internet issues, or server errors. Rather than allowing the application to crash, exception handling enables graceful error 
+management and provides a better user experience.
+
+I learned how AI applications frequently use JSON to exchange structured data between systems. I practiced reading and writing JSON files and 
+understood that JSON is one of the most common formats used by AI APIs. I also gained a basic understanding of *args and **kwargs, learning that 
+they allow Python functions to accept a variable number of arguments, making APIs and frameworks more flexible. Finally, I learned about type hints 
+and understood how they improve code readability, editor support, and maintainability without changing Python's runtime behavior.
+
+The second part of today's learning focused on understanding how Large Language Models work internally. I learned that modern LLMs are built on 
+the Transformer architecture, which uses an attention mechanism to understand relationships between words by processing tokens in parallel rather 
+than one word at a time. I understood that LLMs do not process complete words directly; instead, they break text into smaller units called tokens 
+through a process known as tokenization. I also learned that every prompt and every response consumes tokens, which directly affects API pricing 
+and determines how much information the model can process.
+
+One of the most important concepts I learned today was the context window. I now understand that an LLM does not permanently remember conversations. 
+Instead, it can only consider the information that fits within its context window while generating a response. This explains why AI assistants 
+sometimes appear to forget earlier parts of long conversations.
+
+I also learned how the temperature parameter influences the creativity and randomness of generated responses. Lower temperatures produce more 
+deterministic and factual outputs, while higher temperatures generate more creative and diverse responses. I learned the high-level concept of 
+Top-p sampling and understood that it limits the model to choosing from the most probable next tokens instead of considering every possible token. 
+I also studied hallucinations and realized that LLMs sometimes generate confident but incorrect information because they predict likely text rather 
+than verify facts from reliable sources.
+
+Today's biggest conceptual learning was Prompt Engineering. I learned that Prompt Engineering is the process of designing effective instructions 
+that guide the behavior of an LLM. I studied several prompting techniques, including Zero-shot Prompting, One-shot Prompting, Few-shot Prompting, 
+Role Prompting, Step-by-Step Prompting, Structured Output using JSON, and Output Constraints. By experimenting with different prompts, I observed 
+how the same Gemini model produced significantly different responses depending on the instructions provided. This helped me realize that the 
+intelligence of an AI application depends not only on the underlying model but also on the quality of the prompts used.
+
+The practical project for today was the AI Prompt Playground. Unlike my Day 1 chatbot, which always behaved like a Data Analyst, today's application 
+allowed users to dynamically select different AI roles such as Teacher, HR Recruiter, Senior Data Analyst, and Senior Software Engineer. 
+I stored all role-specific system prompts in a separate roles.py file and used a dictionary to perform dynamic prompt selection based on 
+the user's choice. This helped me understand modular programming and separation of concerns by keeping prompt definitions independent from 
+the main application logic.
+
+I also improved the overall structure of the application by introducing a while True loop, allowing users to continue interacting with the chatbot 
+without restarting the program. I implemented input validation to ensure that invalid role selections no longer terminated the application. 
+Instead of using exit() for invalid input, I replaced it with continue, allowing the program to return to the menu and improving the overall user 
+experience. I also added the ability to exit the application both while selecting a role and while entering a question, making the application more 
+flexible and user-friendly.
+
+During development, I made several mistakes that helped strengthen my understanding of Python. Initially, my application processed only one question 
+before terminating. I corrected this by introducing a continuous loop. I also realized that terminating the program immediately after an invalid 
+role selection created a poor user experience, so I replaced exit() with continue. Another mistake was checking the wrong variable while 
+implementing the exit functionality after entering a question. After debugging the code, I corrected the logic by checking the user's question 
+instead of the role selection. I also learned that indentation inside multi-line f-strings affects the final prompt sent to Gemini and that cleaner 
+prompt formatting improves readability. Finally, I realized that some constant data, such as the role names dictionary, should be defined outside 
+the loop instead of being recreated during every iteration.
+
+Today's biggest realization was that AI applications are not simply about calling an LLM. They involve software engineering principles such as 
+modular design, reusable code, object-oriented programming, structured prompting, input validation, exception handling, and user experience design. 
+I also understood that Prompt Engineering is much more than writing better prompts—it is about designing systems that can dynamically generate 
+appropriate instructions for different tasks.
+
+Overall, Day 2 helped me move from building a simple chatbot to building a configurable AI application that demonstrates dynamic prompt engineering. 
+I now have a much stronger understanding of both the internal concepts behind LLMs and the software engineering practices required to build 
+scalable AI applications. This knowledge forms the foundation for upcoming topics such as LangChain Prompt Templates, LangGraph workflows, 
+Retrieval-Augmented Generation (RAG), and Agentic AI systems.
